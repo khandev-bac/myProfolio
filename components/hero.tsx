@@ -1,68 +1,61 @@
-"use client"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Github } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
+"use client";
+import { ArrowUpRight, Mail } from "lucide-react"
+import { useState } from "react"
 
 export function Hero() {
+  const [showMessage, setShowMessage] = useState(false)
+
+
   return (
-    <header className="w-full">
-      <div className="mx-auto max-w-xl px-6 py-16 md:py-20 animate-in fade-in slide-in-from-bottom-2">
-        <div className="mb-6 flex items-center justify-end">
-          <ThemeToggle />
-        </div>
+    <header className="w-full bg-black min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-white/8 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/8 rounded-full blur-3xl"></div>
+      </div>
 
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <h1 className="group text-pretty text-3xl font-semibold tracking-tight md:text-4xl">
-              {"Hi, I'm Farhan Khan"}{" "}
-              <span
-                aria-hidden
-                className="inline-block origin-[70%_70%] transition-transform duration-300 group-hover:rotate-12"
-              >
-                👋
-              </span>
+      <div className="w-full max-w-6xl mx-auto px-8 relative z-10">
+        <div className="flex flex-col items-center text-center space-y-10">
+          <div className="space-y-6">
+            <p className="text-white/40 text-sm font-light tracking-widest uppercase">Backend Engineer</p>
+            <h1 className="text-8xl lg:text-9xl font-light text-white leading-tight tracking-tight">
+              Farhan Khan
             </h1>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Backend Engineer</p>
-            <p className="mt-4 leading-relaxed text-slate-700 dark:text-slate-200">
-              I love backend systems and building scalable services—focused on performance, reliability, and clean APIs.
-              Also have a little experience with Flutter and React Native for end-to-end prototypes.
-            </p>
-
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <span
-                aria-label="Email: khandevichi@gmail.com"
-                className="inline-flex cursor-default items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white shadow-sm transition-transform duration-200 motion-safe:hover:translate-y-0.5 bg-slate-950 border-slate-500 border"
-              >
-                khandevichi@gmail.com
-              </span>
-
-              <a
-                href="https://github.com/khandev-bac"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-all hover:bg-slate-50 hover:shadow-sm motion-safe:hover:-translate-y-0.5 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800/60"
-                aria-label="Open GitHub profile"
-              >
-                <Github className="h-4 w-4" aria-hidden />
-                GitHub
-              </a>
-
-              <a
-                href="#skills"
-                className="inline-flex items-center justify-center rounded-md border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-all hover:bg-slate-50 hover:shadow-sm motion-safe:hover:-translate-y-0.5 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800/60"
-              >
-                View skills
-              </a>
-            </div>
           </div>
 
-          <Avatar className="h-14 w-14 ring-1 ring-slate-200 ring-offset-2 ring-offset-white overflow-hidden shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:rotate-1 dark:ring-slate-700 dark:ring-offset-slate-950 md:h-16 md:w-16">
-            <AvatarImage
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/khan-o1p0vNyrHtDZW7dYqmYphDB1ZjNkGZ.jpeg"
-              alt="Farhan Khan avatar"
+          <div className="space-y-6 max-w-3xl">
+            <p className="text-2xl lg:text-3xl text-white/80 font-light leading-relaxed">
+              I love <span className="text-white font-light">backend</span>. It feels like crafting the core foundation of any app.
+            </p>
+            
+            <p className="text-lg text-white/60 font-light leading-relaxed">
+              Every system I build is a stepping stone in my learning journey. Building scalable microservices, optimizing databases, and designing resilient infrastructure that powers mission-critical applications.
+            </p>
+
+            <p className="text-base text-white/50 font-light leading-relaxed">
+              Passionate about Go, Node.js, TypeScript, and elegant solutions to complex backend challenges. This is my passion, and this is my craft.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
+            <button
+              onMouseEnter={() => setShowMessage(true)}
+              onMouseLeave={() => setShowMessage(false)}
+              className="group relative inline-flex items-center gap-3 cursor-pointer transition-all duration-300"
+            >
+              <Mail className="w-5 h-5 text-white/50 group-hover:text-white transition-colors" />
+              <span className="text-lg text-white/50 group-hover:text-white font-light transition-colors">
+                {showMessage ? "Let's give me a journey of job" : "khandevichi@gmail.com"}
+              </span>
+              <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-white transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </button>
+            
+            <a 
+              href="mailto:khandevichi@gmail.com"
+              className="absolute inset-0 opacity-0"
+              onMouseEnter={() => setShowMessage(true)}
+              onMouseLeave={() => setShowMessage(false)}
             />
-            <AvatarFallback>FK</AvatarFallback>
-          </Avatar>
+          </div>
         </div>
       </div>
     </header>
