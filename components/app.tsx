@@ -9,7 +9,16 @@ export function Apps() {
       features: ["⚡ Lightning Fast", "🧠 Smart Detection", "💾 Free Up Space", "🔒 Privacy Focused"],
       url: "https://swipester.farhankhan.fun/",
       icon: "📸"
-    }
+    },
+    {
+  title: "CloudyBox",
+  subtitle: "Photo Upload & Management • iOS/Android App",
+  description: "Easily manage and upload your photos with CloudyBox. Swipe right to upload, swipe left to skip. All your photos are securely handled, with progress tracking and seamless background uploads. Simple, fast, and intuitive for everyday photo management.",
+  features: ["⚡ Fast Uploads", "📂 Organized Photos", "✅ Swipe to Upload or Skip", "🔒 Secure & Private"],
+  url: "https://cloudybox.farhankhan.fun/",
+  icon: "☁️"
+}
+
   ]
 
   return (
